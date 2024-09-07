@@ -1,8 +1,7 @@
+import Router from './shared/Router.jsx';
+
 function App() {
-  return (
-    <>
-    </>
-  )
+  return <Router />;
 }
 
-export default App
+export default App;
