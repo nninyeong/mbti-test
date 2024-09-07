@@ -6,7 +6,7 @@ const Header = () => {
   const { user } = useContext(userContext);
 
   return (
-    <header className='flex justify-between items-center h-[50px] px-5 bg-white shadow-lg shadow-gray-500/50'>
+    <header className='fixed top-0 w-full flex justify-between items-center h-[50px] px-5 bg-white shadow-lg shadow-gray-500/50'>
       <div>
         <Link to='/'>홈</Link>
       </div>

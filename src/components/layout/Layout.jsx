@@ -5,11 +5,11 @@ import Footer from './Footer.jsx';
 const Layout = () => {
   return (
     <>
-      <Header/>
-      <main>
-        <Outlet/>
+      <Header />
+      <main className='mt-[50px]'>
+        <Outlet />
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 };
