@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main className='mt-[50px]'>
+      <main className='flex justify-center mt-[50px] bg-gray-100'>
         <Outlet />
       </main>
       <Footer />
