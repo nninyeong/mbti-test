@@ -2,6 +2,8 @@ import { useState } from 'react';
 import FormInput from '../components/Input/FormInput.jsx';
 import Button from '../components/Input/Button.jsx';
 import { Link } from 'react-router-dom';
+import { register } from '../api/auth.js';
+import { Navigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [formValue, setFormValue] = useState({
@@ -10,10 +12,30 @@ const SignUp = () => {
     nickname: '',
   });
 
+  const [signedUp, setSignedUp] = useState(false);
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    const { message, success } = await register(formValue);
+    alert(message);
+    setSignedUp(success);
+  };
+
+  if (signedUp) {
+    return (
+      <Navigate
+        to='/'
+        replace={true}
+      />
+    );
+  }
+
   return (
     <div className='flex flex-col justify-center items-center bg-white w-[500px] p-8 rounded shadow-md'>
       <h2 className='font-bold mb-2'>회원가입</h2>
-      <form className='border rounded p-5 max-w-[800px] bg-gray-200 flex flex-col justify-center items-center gap-5 py-[30px]'>
+      <form
+        className='border rounded p-5 max-w-[800px] bg-gray-200 flex flex-col justify-center items-center gap-5 py-[30px]'
+        onSubmit={handleSignUp}
+      >
         <FormInput
           placeholder='아이디'
           name='id'

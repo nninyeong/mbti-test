@@ -1,8 +1,8 @@
-const Button = ({ children, type, onSubmit, onClick, ...props }) => {
+const Button = ({ children, type, className, onClick, ...props }) => {
   return (
     <button
+      className={className}
       type={type}
-      onSubmit={onSubmit}
       onClick={onClick}
       {...props}
     >
