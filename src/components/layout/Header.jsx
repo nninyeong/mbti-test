@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
 import { userContext } from '../../context/userContextProvider.jsx';
 import { useContext } from 'react';
+import Button from '../Input/Button.jsx';
 
 const Header = () => {
-  const { user } = useContext(userContext);
+  const { isAuthenticated, setLogout } = useContext(userContext);
+
+  const handleLogout = () => {
+    alert('로그아웃 완료!');
+    setLogout();
+  };
 
   return (
     <header className='fixed top-0 w-full flex justify-between items-center h-[50px] px-5 bg-white shadow-lg shadow-gray-500/50'>
@@ -11,11 +17,17 @@ const Header = () => {
         <Link to='/'>홈</Link>
       </div>
       <div className='flex gap-3'>
-        {user ? (
+        {isAuthenticated ? (
           <>
             <Link to='/test'>테스트</Link>
             <Link to='/results'>결과 보기</Link>
             <Link to='/profile'>프로필</Link>
+            <Button
+              type='button'
+              onClick={handleLogout}
+            >
+              로그아웃
+            </Button>
           </>
         ) : (
           <>
