@@ -3,9 +3,9 @@ import { userContext } from '../context/userContextProvider.jsx';
 import { useContext } from 'react';
 
 const ProtectedRoute = () => {
-  const { user } = useContext(userContext);
+  const { isAuthenticated } = useContext(userContext);
   const { pathname } = useLocation();
-  if (!user) {
+  if (!isAuthenticated) {
     return (
       <Navigate
         to='/sign-in'

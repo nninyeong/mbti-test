@@ -16,14 +16,20 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     const { message, success } = await register(formValue);
-    alert(message);
+
+    let alertMessage = message;
+    if (success) {
+      alertMessage += ' 로그인해주세요!';
+    }
+
+    alert(alertMessage);
     setSignedUp(success);
   };
 
   if (signedUp) {
     return (
       <Navigate
-        to='/'
+        to='/sign-in'
         replace={true}
       />
     );
