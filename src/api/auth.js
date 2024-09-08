@@ -19,3 +19,12 @@ export const login = async (userData) => {
     return error.response.data;
   }
 };
+
+export const fetchProfile = async (accessToken) => {
+  try {
+    const response = await axios.get(`${API_URL}/user`, { headers: { Authorization: `Bearer ${accessToken}` } });
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
