@@ -3,6 +3,7 @@ import { questions } from '../data/questions.js';
 import { useState } from 'react';
 import Button from '../components/Input/Button.jsx';
 import { calculateMBTI } from '../utils/mbtiCalculator.js';
+import { usePostTestResults } from '../api/testResults.js';
 
 const Test = () => {
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
@@ -11,6 +12,15 @@ const Test = () => {
     newAnswers[index] = selectedOption;
     setAnswers(newAnswers);
   };
+
+  const { mutateTestResult, isSuccess, postedData, isPending } = usePostTestResults();
+  if (isPending) {
+    return <p>MBTI 계산중...</p>;
+  }
+
+  if (isSuccess) {
+    return <div>MBTI: {postedData.testResult}</div>;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +31,7 @@ const Test = () => {
     }
 
     const result = calculateMBTI(answers);
-    console.log(result);
+    mutateTestResult({ userId: 0, testResult: result });
   };
 
   return (

@@ -1,0 +1,104 @@
+{
+  "testResults": [
+    {
+      "userId": 0,
+      "testResult": "ISFJ",
+      "id": "ff1e"
+    },
+    {
+      "id": "cf33",
+      "userId": 0,
+      "testResult": "ESTJ"
+    },
+    {
+      "id": "1aac",
+      "userId": 0,
+      "testResult": "ESTJ"
+    },
+    {
+      "id": "4cba",
+      "userId": 0,
+      "testResult": "ESTJ"
+    },
+    {
+      "id": "8fd4",
+      "userId": 0,
+      "testResult": "ESFP"
+    },
+    {
+      "id": "7b9d",
+      "userId": 0,
+      "testResult": "INFP"
+    },
+    {
+      "id": "c9e1",
+      "userId": 0,
+      "testResult": "INTP"
+    },
+    {
+      "id": "2594",
+      "userId": 0,
+      "testResult": "ENFP"
+    },
+    {
+      "id": "3b60",
+      "userId": 0,
+      "testResult": "INFP"
+    },
+    {
+      "id": "30f3",
+      "userId": 0,
+      "testResult": "ENTP"
+    },
+    {
+      "id": "f3eb",
+      "userId": 0,
+      "testResult": "ENFJ"
+    },
+    {
+      "id": "c718",
+      "userId": 0,
+      "testResult": "ISFP"
+    },
+    {
+      "id": "18fd",
+      "userId": 0,
+      "testResult": "ISTP"
+    },
+    {
+      "id": "885d",
+      "userId": 0,
+      "testResult": "INTJ"
+    },
+    {
+      "id": "a0c7",
+      "userId": 0,
+      "testResult": "ISTP"
+    },
+    {
+      "id": "0b20",
+      "userId": 0,
+      "testResult": "INFP"
+    },
+    {
+      "id": "0d14",
+      "userId": 0,
+      "testResult": "INFP"
+    },
+    {
+      "id": "6108",
+      "userId": 0,
+      "testResult": "INFP"
+    },
+    {
+      "id": "d4e1",
+      "userId": 0,
+      "testResult": "INFP"
+    },
+    {
+      "id": "6487",
+      "userId": 0,
+      "testResult": "ISTJ"
+    }
+  ]
+}
