@@ -9,7 +9,7 @@ const RecentResult = ({ postedData }) => {
       <div>
         <span>다른 사람들의 결과는?</span>
         <Link
-          to='results'
+          to='/results'
           className='font-bold text-point-red ml-2'
         >
           결과 보기
