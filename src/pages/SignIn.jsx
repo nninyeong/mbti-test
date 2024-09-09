@@ -11,14 +11,14 @@ const SignIn = () => {
   const [logedIn, setLogedIn] = useState(false);
   const handleSignIn = async (e) => {
     e.preventDefault();
-    const { accessToken, success } = await login(formValue);
-
+    const { accessToken, userId, nickname, success } = await login(formValue);
     let alertMessage;
     if (success) {
-      setLogin(accessToken);
+      setLogin(accessToken, { userId, nickname });
       alertMessage = '로그인 성공! 마이페이지로 이동합니다.';
     } else {
       alertMessage = '아이디/비밀번호를 다시 확인해주세요.';
+      return;
     }
 
     alert(alertMessage);
