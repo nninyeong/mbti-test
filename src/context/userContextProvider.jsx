@@ -18,7 +18,6 @@ const UserContextProvider = ({ children }) => {
   const setLogin = (token, userInfo) => {
     localStorage.setItem('accessToken', token);
     setIsAuthenticated(true);
-    console.log('setLogin에 전달된 userInfo: ', userInfo);
     setUserProfile(userInfo);
   };
 
