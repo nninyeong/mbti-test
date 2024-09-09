@@ -1,9 +1,10 @@
-import Question from '../components/Question.jsx';
+import Question from '../components/testPage/Question.jsx';
 import { questions } from '../data/questions.js';
 import { useState } from 'react';
 import Button from '../components/Input/Button.jsx';
 import { calculateMBTI } from '../utils/mbtiCalculator.js';
 import { usePostTestResults } from '../api/testResults.js';
+import RecentResult from '../components/testPage/RecentResult.jsx';
 
 const Test = () => {
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
@@ -19,7 +20,7 @@ const Test = () => {
   }
 
   if (isSuccess) {
-    return <div>MBTI: {postedData.testResult}</div>;
+    return <RecentResult testResult={postedData} />;
   }
 
   const handleSubmit = (e) => {
