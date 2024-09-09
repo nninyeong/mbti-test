@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { queryKeys } from '../queries/queryKeys.js';
 
-const API_URL = 'http://localhost:4000/testResults';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const getTestResults = async () => {
   try {
