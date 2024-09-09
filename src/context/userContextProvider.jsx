@@ -6,10 +6,19 @@ export const userContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!accessToken);
+  const [userProfile, setUserProfile] = useState({
+    userId: '',
+    nickname: '',
+  });
 
-  const setLogin = (token) => {
+  // TODO: 접속시 이미 accessToken이 있는 경우 바로 userProfile 받아오기
+  if (isAuthenticated) {
+  }
+
+  const setLogin = (token, userInfo) => {
     localStorage.setItem('accessToken', token);
     setIsAuthenticated(true);
+    setUserProfile(userInfo);
   };
 
   const setLogout = () => {
@@ -17,7 +26,11 @@ const UserContextProvider = ({ children }) => {
     setIsAuthenticated(false);
   };
 
-  return <userContext.Provider value={{ isAuthenticated, setLogin, setLogout }}>{children}</userContext.Provider>;
+  return (
+    <userContext.Provider value={{ isAuthenticated, setLogin, setLogout, userProfile }}>
+      {children}
+    </userContext.Provider>
+  );
 };
 
 export default UserContextProvider;

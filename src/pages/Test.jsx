@@ -1,11 +1,14 @@
-import Question from '../components/Question.jsx';
+import Question from '../components/mbtiTest/Question.jsx';
 import { questions } from '../data/questions.js';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Button from '../components/Input/Button.jsx';
 import { calculateMBTI } from '../utils/mbtiCalculator.js';
 import { usePostTestResults } from '../api/testResults.js';
+import RecentResult from '../components/mbtiTest/RecentResult.jsx';
+import { userContext } from '../context/userContextProvider.jsx';
 
 const Test = () => {
+  const { userProfile } = useContext(userContext);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const handleSelection = (index, selectedOption) => {
     const newAnswers = [...answers];
@@ -19,7 +22,7 @@ const Test = () => {
   }
 
   if (isSuccess) {
-    return <div>MBTI: {postedData.testResult}</div>;
+    return <RecentResult postedData={postedData} />;
   }
 
   const handleSubmit = (e) => {
@@ -31,7 +34,15 @@ const Test = () => {
     }
 
     const result = calculateMBTI(answers);
-    mutateTestResult({ userId: 0, testResult: result });
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
+    mutateTestResult({
+      userId: userProfile.userId,
+      nickname: userProfile.nickname,
+      testResult: result,
+      date: formattedDate,
+      isPublic: false,
+    });
   };
 
   return (

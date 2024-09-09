@@ -47,3 +47,57 @@ export const usePostTestResults = () => {
 
   return { mutateTestResult, isSuccess, postedData, isPending };
 };
+
+const patchIsPublic = async (targetResult) => {
+  const patchedData = { ...targetResult, isPublic: !targetResult.isPublic };
+  await axios.patch(`${API_URL}/${targetResult.id}`, patchedData);
+};
+
+export const useToggleIsPublic = () => {
+  const queryClient = useQueryClient();
+  const { mutate: mutateIsPublic } = useMutation({
+    mutationFn: patchIsPublic,
+    onMutate: async (targetResult) => {
+      const resultKey = queryKeys.boardController.testResults();
+      await queryClient.cancelQueries({ queryKey: resultKey });
+      const previousResults = queryClient.getQueryData(resultKey);
+
+      queryClient.setQueryData(resultKey, (old) => {
+        return old.map((oldResult) => {
+          if (oldResult.id === targetResult.id) return { ...targetResult, isPublic: !targetResult.isPublic };
+          else return oldResult;
+        });
+      });
+
+      return { previousResults };
+    },
+    onError: (error, targetResult, context) => {
+      queryClient.setQueryData(queryKeys.boardController.testResults(), context.previousResults);
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.boardController.testResults() });
+    },
+  });
+
+  return { mutateIsPublic };
+};
+
+const deleteResult = async (targetResult) => {
+  await axios.delete(`${API_URL}/${targetResult.id}`);
+};
+
+export const useDeleteResult = () => {
+  const queryClient = useQueryClient();
+  const {
+    mutate: mutateDelete,
+    isSuccess,
+    isPending,
+  } = useMutation({
+    mutationFn: deleteResult,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.boardController.testResults() });
+    },
+  });
+
+  return { mutateDelete, isSuccess, isPending };
+};
