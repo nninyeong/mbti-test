@@ -28,3 +28,25 @@ export const fetchProfile = async (accessToken) => {
     return error.response.data;
   }
 };
+
+export const editProfile = async (accessToken, newNickname) => {
+  try {
+    const formData = new FormData();
+    formData.append('nickname', newNickname);
+
+    const response = await axios.patch(
+      `${API_URL}/profile`,
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      },
+      { avatar: null, newNickname },
+    );
+
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
