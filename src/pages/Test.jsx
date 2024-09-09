@@ -41,7 +41,7 @@ const Test = () => {
       nickname: userProfile.nickname,
       testResult: result,
       date: formattedDate,
-      isPublic: false,
+      isPublic: true,
     });
   };
 
