@@ -27,7 +27,7 @@ const UserContextProvider = ({ children }) => {
   };
 
   return (
-    <userContext.Provider value={{ isAuthenticated, setLogin, setLogout, userProfile }}>
+    <userContext.Provider value={{ isAuthenticated, setLogin, setLogout, userProfile, setUserProfile }}>
       {children}
     </userContext.Provider>
   );
