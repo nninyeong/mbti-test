@@ -81,3 +81,23 @@ export const useToggleIsPublic = () => {
 
   return { mutateIsPublic };
 };
+
+const deleteResult = async (targetResult) => {
+  await axios.delete(`${API_URL}/${targetResult.id}`);
+};
+
+export const useDeleteResult = () => {
+  const queryClient = useQueryClient();
+  const {
+    mutate: mutateDelete,
+    isSuccess,
+    isPending,
+  } = useMutation({
+    mutationFn: deleteResult,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.boardController.testResults() });
+    },
+  });
+
+  return { mutateDelete, isSuccess, isPending };
+};
