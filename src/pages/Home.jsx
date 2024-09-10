@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import GuidePanel from '../components/home/GuidePanel.jsx';
+import guideText from '../data/guideText.js';
 
 const Home = () => {
   return (
@@ -10,16 +11,16 @@ const Home = () => {
       </p>
       <div className='flex gap-5 mb-14'>
         <GuidePanel
-          title='성격 유형 검사'
-          detail='자신의 성격 유형을 파악하고 삶의 여러 영역에서 어떤 영향을 미치는지 알아보세요.'
+          title={guideText[0].title}
+          detail={guideText[0].detail}
         />
         <GuidePanel
-          title='성격 유형 이해'
-          detail='다른 사람들이 어떻게 행동하는지 이해하는 것에 도움을 줄 수 있습니다.'
+          title={guideText[1].title}
+          detail={guideText[1].detail}
         />
         <GuidePanel
-          title='팀 평가'
-          detail='팀 내에서 자신과 동료들의 성격을 이해하고 협력할 수 있는 방법을 배워보세요.'
+          title={guideText[2].title}
+          detail={guideText[2].detail}
         />
       </div>
       <div className='flex justify-center items-center'>
