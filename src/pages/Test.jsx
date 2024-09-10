@@ -6,6 +6,7 @@ import { calculateMBTI } from '../utils/mbtiCalculator.js';
 import { usePostTestResults } from '../api/testResults.js';
 import RecentResult from '../components/mbtiTest/RecentResult.jsx';
 import { userContext } from '../context/userContextProvider.jsx';
+import MoveTopButton from '../components/Input/MoveTopButton.jsx';
 
 const Test = () => {
   const { userProfile } = useContext(userContext);
@@ -64,6 +65,7 @@ const Test = () => {
         })}
         <Button type='submit'>제출하기</Button>
       </form>
+      <MoveTopButton />
     </div>
   );
 };
