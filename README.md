@@ -30,10 +30,13 @@ MBTI 테스트하기는 개인 프로젝트로, 20가지 질문을 통해 사용
 
 ### 1. 회원가입/로그인/프로필 관리
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/1994453e-339d-43aa-b761-e6a92a5781de" alt="스크린샷 1" width="45%" />
-  <img src="https://github.com/user-attachments/assets/973eb102-9594-4897-82cd-c9f709413ddb" alt="스크린샷 2" width="45%" />
-</p>
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/1994453e-339d-43aa-b761-e6a92a5781de" alt="스크린샷 1" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/973eb102-9594-4897-82cd-c9f709413ddb" alt="스크린샷 2" width="400"></td>
+  </tr>
+</table>
+
 
 - JWT 인증 서버를 사용하여 사용자 인증을 구현했습니다.
 - 사용자 프로필에서 닉네임 변경 기능을 제공하며, 인증된 사용자는 이 기능을 이용할 수 있습니다.
@@ -55,6 +58,17 @@ MBTI 테스트하기는 개인 프로젝트로, 20가지 질문을 통해 사용
 
 ### 5. Tanstack Query와 axios를 이용한 테스트 결과 관리
 - Tanstack Query를 활용해 서버 요청 시 `isPending`, `isError`, `isSuccess` 등의 상태를 제어하고, axios로 데이터를 주고받는 기능을 구현했습니다.
+
+### +) 반응형 UI 구현 (update 24.09.11)
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/a872660a-c130-403e-aac1-bf20cdbfb2ae" alt="responsive ui" width="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/f84415bb-e16b-403b-bf88-bab70849e878" alt="image" width="200"></td>
+  </tr>
+</table>
+
+- width 1024px 보다 좁은 환경에서 Home.jsx에 접속하는 경우 내부 요소들이 잘린 형태로 보여 1024 이하인 경우 캐러셀로 GuidePanel.jsx을 렌더링하게 수정했습니다.
+
 
 <br/>
 <br/>
