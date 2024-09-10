@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { fetchProfile } from '../api/auth.js';
 
 const accessToken = localStorage.getItem('accessToken');
 
@@ -6,13 +7,18 @@ export const userContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!accessToken);
-  const [userProfile, setUserProfile] = useState({
-    userId: '',
-    nickname: '',
-  });
+  const [userProfile, setUserProfile] = useState();
 
-  // TODO: 접속시 이미 accessToken이 있는 경우 바로 userProfile 받아오기
-  if (isAuthenticated) {
+  if (isAuthenticated && !userProfile) {
+    (async () => {
+      const { success, id, nickname } = await fetchProfile(accessToken);
+      if (success) {
+        setUserProfile({ userId: id, nickname: nickname });
+      } else {
+        localStorage.removeItem('accessToken');
+        window.location.reload();
+      }
+    })();
   }
 
   const setLogin = (token, userInfo) => {
