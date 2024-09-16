@@ -1,104 +1,43 @@
 {
   "testResults": [
     {
-      "userId": 0,
-      "testResult": "ISFJ",
-      "id": "ff1e"
+      "userId": "other",
+      "nickname": "다른사람",
+      "testResult": "ESTP",
+      "date": "2024.09.09",
+      "isPublic": true,
+      "id": "6d84"
     },
     {
-      "id": "cf33",
-      "userId": 0,
-      "testResult": "ESTJ"
+      "userId": "other",
+      "nickname": "다른사람",
+      "testResult": "ESTP",
+      "date": "2024.09.09",
+      "isPublic": false,
+      "id": "740f"
     },
     {
-      "id": "1aac",
-      "userId": 0,
-      "testResult": "ESTJ"
+      "id": "c3c9",
+      "nickname": "뉴닉네임",
+      "testResult": "INTJ",
+      "date": "2024.09.10",
+      "isPublic": false
     },
     {
-      "id": "4cba",
-      "userId": 0,
-      "testResult": "ESTJ"
+      "id": "22f3",
+      "userId": "mintest",
+      "nickname": "구리",
+      "testResult": "ENFJ",
+      "date": "2024.09.10",
+      "isPublic": false
     },
     {
-      "id": "8fd4",
-      "userId": 0,
-      "testResult": "ESFP"
-    },
-    {
-      "id": "7b9d",
-      "userId": 0,
-      "testResult": "INFP"
-    },
-    {
-      "id": "c9e1",
-      "userId": 0,
-      "testResult": "INTP"
-    },
-    {
-      "id": "2594",
-      "userId": 0,
-      "testResult": "ENFP"
-    },
-    {
-      "id": "3b60",
-      "userId": 0,
-      "testResult": "INFP"
-    },
-    {
-      "id": "30f3",
-      "userId": 0,
-      "testResult": "ENTP"
-    },
-    {
-      "id": "f3eb",
-      "userId": 0,
-      "testResult": "ENFJ"
-    },
-    {
-      "id": "c718",
-      "userId": 0,
-      "testResult": "ISFP"
-    },
-    {
-      "id": "18fd",
-      "userId": 0,
-      "testResult": "ISTP"
-    },
-    {
-      "id": "885d",
-      "userId": 0,
-      "testResult": "INTJ"
-    },
-    {
-      "id": "a0c7",
-      "userId": 0,
-      "testResult": "ISTP"
-    },
-    {
-      "id": "0b20",
-      "userId": 0,
-      "testResult": "INFP"
-    },
-    {
-      "id": "0d14",
-      "userId": 0,
-      "testResult": "INFP"
-    },
-    {
-      "id": "6108",
-      "userId": 0,
-      "testResult": "INFP"
-    },
-    {
-      "id": "d4e1",
-      "userId": 0,
-      "testResult": "INFP"
-    },
-    {
-      "id": "6487",
-      "userId": 0,
-      "testResult": "ISTJ"
+      "id": "e667",
+      "userId": "mintest",
+      "nickname": "다른닉네임",
+      "testResult": "ISTJ",
+      "date": "2024.09.10",
+      "isPublic": false
     }
   ]
 }

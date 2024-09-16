@@ -5,11 +5,11 @@ import Button from '../components/Input/Button.jsx';
 import { calculateMBTI } from '../utils/mbtiCalculator.js';
 import { usePostTestResults } from '../api/testResults.js';
 import RecentResult from '../components/mbtiTest/RecentResult.jsx';
-import { userContext } from '../context/userContextProvider.jsx';
+import { UserContext } from '../context/userContextProvider.jsx';
 import MoveTopButton from '../components/Input/MoveTopButton.jsx';
 
 const Test = () => {
-  const { userProfile } = useContext(userContext);
+  const { userProfile } = useContext(UserContext);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const handleSelection = (index, selectedOption) => {
     const newAnswers = [...answers];

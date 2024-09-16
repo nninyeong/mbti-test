@@ -1,10 +1,10 @@
 import { useGetTestResults } from '../api/testResults.js';
 import ResultCard from '../components/mbtiTest/ResultCard.jsx';
 import { useContext } from 'react';
-import { userContext } from '../context/userContextProvider.jsx';
+import { UserContext } from '../context/userContextProvider.jsx';
 
 const Results = () => {
-  const { userProfile } = useContext(userContext);
+  const { userProfile } = useContext(UserContext);
   const { data: allResults, isPending, isError } = useGetTestResults();
   if (isPending) {
     return <p>Loading...</p>;

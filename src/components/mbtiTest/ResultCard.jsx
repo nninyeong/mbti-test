@@ -1,11 +1,11 @@
 import Button from '../Input/Button.jsx';
 import { useContext, useState } from 'react';
-import { userContext } from '../../context/userContextProvider.jsx';
+import { UserContext } from '../../context/userContextProvider.jsx';
 import { useDeleteResult, useToggleIsPublic } from '../../api/testResults.js';
 import mbtiDescriptions from '../../data/mbtiDescriptions.js';
 
 const ResultCard = ({ result }) => {
-  const { userProfile } = useContext(userContext);
+  const { userProfile } = useContext(UserContext);
   const { nickname, testResult, date, isPublic, userId } = result;
   const isMyResult = userProfile.userId === userId;
 

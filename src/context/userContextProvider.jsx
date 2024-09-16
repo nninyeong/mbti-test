@@ -3,7 +3,7 @@ import { fetchProfile } from '../api/auth.js';
 
 const accessToken = localStorage.getItem('accessToken');
 
-export const userContext = createContext();
+export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!accessToken);
@@ -35,9 +35,9 @@ const UserContextProvider = ({ children }) => {
   };
 
   return (
-    <userContext.Provider value={{ isAuthenticated, setLogin, setLogout, userProfile, setUserProfile }}>
+    <UserContext.Provider value={{ isAuthenticated, setLogin, setLogout, userProfile, setUserProfile }}>
       {children}
-    </userContext.Provider>
+    </UserContext.Provider>
   );
 };
 
