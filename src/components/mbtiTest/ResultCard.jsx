@@ -17,11 +17,8 @@ const ResultCard = ({ result }) => {
     mutateIsPublic(result);
   };
 
-  let isVisible = true;
-  const { mutateDelete, isSuccess, isPending } = useDeleteResult();
-  if (isSuccess) {
-    isVisible = false;
-  }
+  const { mutateDelete, isSuccess: isDeleteSuccess, isPending } = useDeleteResult();
+  if (isDeleteSuccess) return;
 
   const cardContent = () => {
     if (isPending) {
@@ -43,7 +40,7 @@ const ResultCard = ({ result }) => {
     }
   };
 
-  return isVisible ? (
+  return (
     <div className='flex flex-col justify-center items-center w-[550px]'>
       <div className='flex flex-row justify-center items-center font-bold text-2xl text-white bg-point-red w-full h-[45px] rounded-t'>
         {nickname} 님
@@ -68,7 +65,7 @@ const ResultCard = ({ result }) => {
       </div>
       <div className='flex flex-col justify-center items-start bg-white w-full p-5 rounded-b'>{cardContent()}</div>
     </div>
-  ) : null;
+  );
 };
 
 export default ResultCard;
