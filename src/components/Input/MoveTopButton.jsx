@@ -7,7 +7,7 @@ const MoveTopButton = () => {
 
   return (
     <Button
-      className='fixed bottom-10 right-10'
+      className='fixed bottom-10 right-10 rounded-2xl bg-white w-[60px] h-[60px]'
       onClick={handleMoveTop}
     >
       맨위로

@@ -63,7 +63,12 @@ const Test = () => {
             />
           );
         })}
-        <Button type='submit'>제출하기</Button>
+        <Button
+          type='submit'
+          className='rounded bg-point-red text-white w-full'
+        >
+          제출하기
+        </Button>
       </form>
       <MoveTopButton />
     </div>
