@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Carousel from '../components/home/Carousel.jsx';
+import GuideContainer from '../components/home/GuideContainer.jsx';
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <p className='font-light text-xl w-full text-center mb-8'>
         자신의 성격 유형을 확인할 수 있도록 솔직하게 답변해주세요.
       </p>
-      <Carousel />
+      <GuideContainer />
       <div className='flex justify-center items-center mt-5'>
         <div className='flex justify-center items-center rounded w-[250px] h-[50px] bg-point-red cursor-pointer group hover:bg-white'>
           <Link

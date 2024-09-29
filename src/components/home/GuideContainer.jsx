@@ -3,7 +3,7 @@ import guideText from '../../data/guideText.js';
 import GuidePanel from './GuidePanel.jsx';
 import Button from '../Input/Button.jsx';
 
-const Carousel = () => {
+const GuideContainer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -73,4 +73,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default GuideContainer;
