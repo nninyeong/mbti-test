@@ -69,6 +69,15 @@ MBTI 테스트하기는 개인 프로젝트로, 20가지 질문을 통해 사용
 
 - width 1024px 보다 좁은 환경에서 Home.jsx에 접속하는 경우 내부 요소들이 잘린 형태로 보여 1024 이하인 경우 캐러셀로 GuidePanel.jsx을 렌더링하게 수정했습니다.
 
+### +) 맨위로 가기 버튼 위치 조정 (update 24.09.29)
+<table>
+  <tr>
+    <td><img width="531" alt="image" src="https://github.com/user-attachments/assets/d0962746-bd2d-40b9-83fa-67b6a9fb7a9a"></td>
+    <td><img width="531" alt="image" src="https://github.com/user-attachments/assets/b1d0a390-ffc3-483c-ac32-a5e042436b4c"></td>
+  </tr>
+</table>
+
+- 제출하기 버튼을 IntersectionObserver를 이용해 감지하여 뷰포트에 노출되는 경우 맨위로가기 버튼이 기본 fixed로 고정된 위치보다 위로 조정하여 두 버튼이 겹치지 않도록 수정했습니다.
 
 <br/>
 <br/>
