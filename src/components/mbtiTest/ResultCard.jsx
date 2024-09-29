@@ -26,9 +26,9 @@ const ResultCard = ({ result }) => {
     } else {
       return (
         <>
-          <div className='font-bold text-xl'>{testResult}</div>
-          <p>{mbtiDescriptions[testResult]}</p>
-          <span>{date}</span>
+          <div className='font-bold text-[15px] lg:text-xl'>{testResult}</div>
+          <p className='text-[13px] lg:text-lg'>{mbtiDescriptions[testResult]}</p>
+          <span className='text-[13px] lg:text-lg'>{date}</span>
         </>
       );
     }
@@ -41,20 +41,20 @@ const ResultCard = ({ result }) => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center w-[550px]'>
-      <div className='flex flex-row justify-center items-center font-bold text-2xl text-white bg-point-red w-full h-[45px] rounded-t'>
+    <div className='flex flex-col justify-center items-center w-[80%] lg:w-[550px]'>
+      <div className='flex flex-row justify-center items-center font-bold text-[15px] lg:text-2xl text-white bg-point-red w-full h-[25px] lg:h-[45px] rounded-t'>
         {nickname} 님
         {isMyResult ? (
           <>
             <Button
-              className='bg-primary-bg-red rounded ml-2 p-1 h-[30px] font-medium text-lg text-gray-600'
+              className='bg-primary-bg-red rounded ml-2 p-1 w-[50px] lg:w-[80px] h-[80%] lg:h-[30px] leading-[10px] lg:leading-[18px] font-medium text-[10px] lg:text-[18px] text-gray-600'
               type='button'
               onClick={handleTogglePublic}
             >
               {isPublicCard ? '숨기기' : '공개하기'}
             </Button>
             <Button
-              className='bg-primary-bg-red rounded ml-2 p-1 h-[30px] font-medium text-lg text-gray-600'
+              className='bg-primary-bg-red rounded ml-2 p-1 w-[50px] lg:w-[80px] h-[80%] lg:h-[30px] leading-[10px] lg:leading-[18px] font-medium text-[10px] lg:text-[18px] text-gray-600'
               type='button'
               onClick={deleteResult}
             >
@@ -63,7 +63,9 @@ const ResultCard = ({ result }) => {
           </>
         ) : null}
       </div>
-      <div className='flex flex-col justify-center items-start bg-white w-full p-5 rounded-b'>{cardContent()}</div>
+      <div className='flex flex-col justify-center items-start bg-white w-full h-[120px] lg:h-[150px] p-5 rounded-b'>
+        {cardContent()}
+      </div>
     </div>
   );
 };
