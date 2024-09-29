@@ -1,21 +1,43 @@
 import Question from '../components/mbtiTest/Question.jsx';
 import { questions } from '../data/questions.js';
-import { useContext, useState } from 'react';
-import Button from '../components/Input/Button.jsx';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { calculateMBTI } from '../utils/mbtiCalculator.js';
 import { usePostTestResults } from '../api/testResults.js';
 import RecentResult from '../components/mbtiTest/RecentResult.jsx';
-import { userContext } from '../context/userContextProvider.jsx';
+import { UserContext } from '../context/userContextProvider.jsx';
 import MoveTopButton from '../components/Input/MoveTopButton.jsx';
+import TestSubmitButton from '../components/Input/TestSubmitButton.jsx';
 
 const Test = () => {
-  const { userProfile } = useContext(userContext);
+  const { userProfile } = useContext(UserContext);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const handleSelection = (index, selectedOption) => {
     const newAnswers = [...answers];
     newAnswers[index] = selectedOption;
     setAnswers(newAnswers);
   };
+
+  const submitButtonRef = useRef(null);
+  const [isPositionMove, setIsPositionMove] = useState(false);
+  useEffect(() => {
+    const submitButton = submitButtonRef.current;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsPositionMove(true);
+        } else {
+          setIsPositionMove(false);
+        }
+      });
+    });
+
+    if (submitButton) observer.observe(submitButton);
+
+    return () => {
+      if (submitButton) observer.unobserve(submitButton);
+    };
+  }, []);
 
   const { mutateTestResult, isSuccess, postedData, isPending } = usePostTestResults();
   if (isPending) {
@@ -63,9 +85,15 @@ const Test = () => {
             />
           );
         })}
-        <Button type='submit'>제출하기</Button>
+        <TestSubmitButton
+          type='submit'
+          className='rounded bg-point-red text-white w-full'
+          ref={submitButtonRef}
+        >
+          제출하기
+        </TestSubmitButton>
       </form>
-      <MoveTopButton />
+      <MoveTopButton isPositionMove={isPositionMove} />
     </div>
   );
 };

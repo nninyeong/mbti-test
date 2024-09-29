@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
 import { login } from '../api/auth.js';
-import { userContext } from '../context/userContextProvider.jsx';
+import { UserContext } from '../context/userContextProvider.jsx';
 import { Link, Navigate } from 'react-router-dom';
 import AuthForm from '../components/Input/AuthForm.jsx';
 
 const SignIn = () => {
   const [formValue, setFormValue] = useState({ id: '', password: '' });
 
-  const { setLogin } = useContext(userContext);
+  const { setLogin } = useContext(UserContext);
   const [logedIn, setLogedIn] = useState(false);
   const handleSignIn = async (e) => {
     e.preventDefault();

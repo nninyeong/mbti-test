@@ -1,12 +1,12 @@
 import Button from '../Input/Button.jsx';
 import { useContext, useState } from 'react';
-import { userContext } from '../../context/userContextProvider.jsx';
+import { UserContext } from '../../context/userContextProvider.jsx';
 import { useDeleteResult, useToggleIsPublic } from '../../api/testResults.js';
-import mbtiDescriptions from '../../data/mbtiDescriptions.js';
+import CardContent from './CardContent.jsx';
 
 const ResultCard = ({ result }) => {
-  const { userProfile } = useContext(userContext);
-  const { nickname, testResult, date, isPublic, userId } = result;
+  const { userProfile } = useContext(UserContext);
+  const { nickname, isPublic, userId } = result;
   const isMyResult = userProfile.userId === userId;
 
   const { mutateIsPublic } = useToggleIsPublic();
@@ -17,25 +17,8 @@ const ResultCard = ({ result }) => {
     mutateIsPublic(result);
   };
 
-  let isVisible = true;
-  const { mutateDelete, isSuccess, isPending } = useDeleteResult();
-  if (isSuccess) {
-    isVisible = false;
-  }
-
-  const cardContent = () => {
-    if (isPending) {
-      return <p>삭제중...</p>;
-    } else {
-      return (
-        <>
-          <div className='font-bold text-[15px] lg:text-xl'>{testResult}</div>
-          <p className='text-[13px] lg:text-lg'>{mbtiDescriptions[testResult]}</p>
-          <span className='text-[13px] lg:text-lg'>{date}</span>
-        </>
-      );
-    }
-  };
+  const { mutateDelete, isSuccess: isDeleteSuccess, isPending } = useDeleteResult();
+  if (isDeleteSuccess) return;
 
   const deleteResult = () => {
     if (confirm('정말 삭제하시겠습니까?')) {
@@ -43,7 +26,7 @@ const ResultCard = ({ result }) => {
     }
   };
 
-  return isVisible ? (
+  return (
     <div className='flex flex-col justify-center items-center w-[80%] lg:w-[550px]'>
       <div className='flex flex-row justify-center items-center font-bold text-[15px] lg:text-2xl text-white bg-point-red w-full h-[25px] lg:h-[45px] rounded-t'>
         {nickname} 님
@@ -67,10 +50,13 @@ const ResultCard = ({ result }) => {
         ) : null}
       </div>
       <div className='flex flex-col justify-center items-start bg-white w-full h-[120px] lg:h-[150px] p-5 rounded-b'>
-        {cardContent()}
+        <CardContent
+          isDeleting={isPending}
+          result={result}
+        />
       </div>
     </div>
-  ) : null;
+  );
 };
 
 export default ResultCard;

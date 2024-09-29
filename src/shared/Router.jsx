@@ -5,7 +5,6 @@ import Profile from '../pages/Profile.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
 import Results from '../pages/Results.jsx';
 import Test from '../pages/Test.jsx';
-import TestResult from '../pages/TestResult.jsx';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import Layout from '../components/layout/Layout.jsx';
 import NonAuthenticatedRoute from './NonAuthenticatedRoute.jsx';
@@ -51,10 +50,6 @@ const Router = () => {
         {
           path: 'test',
           element: <Test />,
-        },
-        {
-          path: 'test-result',
-          element: <TestResult />,
         },
       ],
     },

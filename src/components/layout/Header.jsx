@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { userContext } from '../../context/userContextProvider.jsx';
+import { UserContext } from '../../context/userContextProvider.jsx';
 import { useContext } from 'react';
 import Button from '../Input/Button.jsx';
 
 const Header = () => {
-  const { isAuthenticated, setLogout } = useContext(userContext);
+  const { isAuthenticated, setLogout } = useContext(UserContext);
 
   const handleLogout = () => {
     alert('로그아웃 완료!');

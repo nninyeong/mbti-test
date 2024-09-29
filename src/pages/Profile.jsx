@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
 import { editProfile } from '../api/auth.js';
 import Button from '../components/Input/Button.jsx';
-import { userContext } from '../context/userContextProvider.jsx';
+import { UserContext } from '../context/userContextProvider.jsx';
 
 const Profile = () => {
   const accessToken = localStorage.getItem('accessToken');
-  const { userProfile, setUserProfile } = useContext(userContext);
+  const { userProfile, setUserProfile } = useContext(UserContext);
 
   const [editMode, setEditMode] = useState(false);
   const [newNickname, setNewNickname] = useState('');
